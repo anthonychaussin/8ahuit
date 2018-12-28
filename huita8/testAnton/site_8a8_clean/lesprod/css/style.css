@@ -1,0 +1,163 @@
+*{ margin:0px;padding:0px;}
+
+
+/*couleur bleu du body*/
+body {
+	background-color:rgb(99, 150, 232);
+}
+
+
+/*Le css du header*/
+header{
+	background-color:rgb(42, 83, 150); 
+	width: 100%;
+	height: 100%;
+	float: left;
+	background-image: url(3.jpg);
+}
+
+
+/*option css de connexion inscription et panier*/
+.menuHead{
+	display: inline-block;
+	color: black;
+	border: solid 2px white;
+	background-color: white;
+	margin-left: 10px;
+	float:right;
+	margin-top: 20px;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+/*image du huit a huit*/
+.imgHead{
+	width: 20%;
+	height: 20%;
+}
+/*La fin du css du header*/
+#entete {
+width: 100%;
+height: 230px;
+display: block;
+/*margin: 0 auto 5px auto; sert a Centre le div entete*/
+}
+
+#headbar {
+	width: 160px;
+	background-color: #1c463a;
+	height: 1cm;
+}
+
+#headspace {
+	height: 1cm;
+	display: none;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+}
+
+.snbutton{
+	display: none;
+}
+
+#sidebar {
+    height: 100vh;
+    width: 160px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    background-color: #1c463a;
+    overflow-x: hidden;
+    top: 260px;
+}
+
+/*texte menu navigable*/
+#sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #afd045;
+    display:block;
+}
+/*effet de la souris menu navigable*/
+#sidebar a:hover {
+    color: #1c463a;
+    background-color: #afd045;
+    font-weight: bold;
+    width:100%;
+}
+
+/*centrage des produits*/
+.product_list {
+	margin-top: -1cm;
+    margin-left: 160px;
+    display: grid;
+}
+
+/*css de tout les produits*/
+.product {
+    border: solid 1px black;
+}
+ 
+/*Taille des images logo et alignement à gauche*/
+img.logo {
+	width: 68px;
+	height: 75px;
+	float:left;
+}
+ 
+/*Taille du conteneur central et alignement à gauche (du conteneur!)*/
+#centre {
+	background-color: silver;
+	width: 340px;
+	height: 75px;
+	float: left;
+}
+ 
+/*Taille de l'image centrale, transformation en bloc puis centrage au sein de la div*/
+#centre img {
+	width: 493px;
+	height: 251.253px;
+	display: block;
+	margin: auto; 
+}
+
+@media screen and (max-width: 15cm) {
+	.basket {
+		display: none;
+	}
+	.snbutton {
+		display: inline;
+	}
+	#headbar {
+		width: 100vw;
+		background-color: orange;
+	}
+	#sidebar {
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+}
+
+
+/*pour l'animation du menu*/
+
+/* Les animations d'entrée (« enter ») et de sortie (« leave »)  */
+/* peuvent utiliser différentes fonctions de durée et de temps.  */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+
+/*fin css anim menu*/

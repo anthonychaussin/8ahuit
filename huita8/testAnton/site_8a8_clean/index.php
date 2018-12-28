@@ -1,0 +1,12 @@
+<?php
+
+	session_start();
+
+	require "lesprod/produit.php";
+	include_once "lesprod/view.php";
+
+
+/*	https://laravel.sillo.org/vue-js2-vue-resource-1-2/*/
+/*https://maurice-chavelli.developpez.com/javascript/vue-js-plus-loin/*/
+
+/*http://10.103.1.202/~huitahuit/*/

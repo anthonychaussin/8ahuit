@@ -1,0 +1,53 @@
+
+/*NE PAS TOUCHER NON PLUS */
+/*Mais on peux pas charger tous les css en meme temps sinon il font beuger le css de chaque page*/
+@import 'huita8/pages/lesprod/css/style.css';
+@import 'huita8/pages/form_inscription-connection/style.css';
+@import 'huita8/pages/acceuil/CSS/style.css';
+
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: baseFont;
+}
+
+@font-face {
+  font-family: baseFont;
+  src: url(huita8/font/base.ttf);
+}
+
+@font-face {
+  font-family: lightFont;
+  src: url(huita8/font/Light.ttf);
+}
+
+@font-face {
+  font-family: boldFont;
+  src: url(huita8/font/Bold.ttf);
+}
+
+@font-face {
+  font-family: italicFont;
+  src: url(huita8/font/Italic.ttf);
+}
+
+@font-face {
+  font-family: lightItalicFont;
+  src: url(huita8/font/Light_Italic.ttf);
+}
+
+@font-face {
+  font-family: boldItalicFont;
+  src: url(huita8/font/Bold_Italic.ttf);
+}
+
+a{
+  list-style: none;
+  width: 100%;
+}
+a:visited {
+  color: green;
+}
+a:link {
+  text-decoration: none;
+}

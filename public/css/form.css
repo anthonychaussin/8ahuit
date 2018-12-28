@@ -1,0 +1,52 @@
+/*anthony chaussin*/
+#menu{
+
+    display: flex;
+    text-align: justify;
+    width: 100%;
+}
+li{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+}
+li:hover{
+  background-color: #5c5cff38;
+}
+.content {
+    max-width: 50%;
+    margin: 0 auto;
+}
+.form{
+	display: inline-grid;
+}
+#inscription{
+	display: flex;
+    margin-top: 62px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    box-shadow: 0px 0px 20px;
+    border-radius: 5px;
+    width: 500px;
+}
+#or{
+	margin: 15px;
+}
+#adr{
+	box-shadow: 0px 0px 3px;
+    display: block;
+    margin: 5px;
+    padding: 6px;
+}
+.bloc{
+	display: grid;
+}
+input {
+    margin: 5px;
+}
+h5{
+	margin-bottom: 2px;
+}

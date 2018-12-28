@@ -1,0 +1,417 @@
+*{ margin:0px;padding:0px;}
+
+
+/*couleur bleu du body*/
+body {
+	background-color:#cceaea;
+}
+
+
+/*Le css du header*/
+header{
+	background-color:rgb(42, 83, 150); 
+	width: 100%;
+	height: 100%;
+	float: left;
+	background-image: url(3.jpg);
+}
+
+
+/*option css de connexion inscription et panier*/
+.menuHead{
+	display: inline-block;
+	color: black;
+	border: solid 2px white;
+	background-color: white;
+	margin-left: 10px;
+	float:right;
+	margin-top: 20px;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+/*image du huit a huit*/
+.imgHead{
+	width: 20%;
+	height: 20%;
+}
+
+.vignette_img_min{
+	width: 190px;
+	height: 190px;
+}
+
+/*La fin du css du header*/
+#entete {
+width: 100%;
+height: 230px;
+display: block;
+
+
+/*margin: 0 auto 5px auto; sert a Centre le div entete*/
+} 
+ 
+/*Taille des images logo et alignement à gauche*/
+img.logo {
+width: 68px;
+height: 75px;
+float:left; }
+ 
+/*Taille du conteneur central et alignement à gauche (du conteneur!)*/
+#centre {
+background-color: silver;
+width: 340px;
+height: 75px;
+float: left; }
+ 
+/*Taille de l'image centrale, transformation en bloc puis centrage au sein de la div*/
+#centre img {
+width: 493px;
+height: 251.253px;
+display: block;
+margin: auto; 
+}
+
+/*panier sous la photo de l'article */
+#panier{
+	margin-left:3%;
+}
+
+#nb{
+	size:30px;
+	margin-left:5%;
+}
+
+
+/*disposition prix/panier*/
+.fle{
+	display:flex;
+
+	margin-bottom: 222px;
+
+}
+
+/*zone menu navigable*/
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: #1c463a;
+    overflow-x: hidden;
+    padding-top: 20px;
+    top:14.345em;
+    text-align: center;
+}
+/*texte menu navigable*/
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #afd045;
+    display:block;
+}
+/*effet de la souris menu navigable*/
+.sidenav a:hover {
+    color: #1c463a;
+    background-color: #afd045;
+    font-weight: bold;
+    width:100%;
+}
+
+
+/*centrage des produits*/
+.product_list {
+
+    margin-left: 230px;
+    height: 400px;
+
+}
+
+/*css de tout les produits*/
+.product {
+    display: inline-block;
+    height: 345px;
+    width: 300px;
+    border: solid 1px #1c463a;
+    margin: 3%;
+    border-radius: 10px;
+}
+
+
+/*fond produit*/
+img{
+	border:none;
+}
+.border{
+	width: auto;
+	height:343px;
+	border:solid 1px #d0d0d0;
+	background-color:whitesmoke;
+	margin:0 auto 0 auto;
+	border-radius: 10px;
+}
+
+
+/*.vignette_pictos
+{
+
+	width:55px;
+	text-align: right;
+	right:1px;
+	top:3px;
+	z-index:1;
+}
+*/
+
+.vignette_info{
+	height:64px;
+	text-align:center;
+}
+
+.vignette_img{
+	width:190px;
+	height:190px;
+	position:relative;
+	margin:auto;
+	margin-top:10px;
+	cursor:pointer;
+}
+.vignette_remise{
+	position: absolute;
+  margin-top: 30%;
+}
+.vignette_remise_txt{
+  font-size: 60px;
+  color: red;
+}
+
+.box{
+	margin-right:20%;
+}
+.barreNbPro{
+	width:30px;
+}
+input
+{
+	border:none;
+	outline:none;
+	padding:5px;
+	border-radius:5px;
+	box-shadow:0 2px 5px rgba(0,0,0,.5);
+	margin:0 5px !important;
+	
+}
+input:hover,input:focus{
+	background-color:darkgreen;
+	color:#fff;
+}
+button
+{
+	background:grey;
+	color:#fff;
+	border:none;
+	outline:none;
+	padding:0 10px;
+	border-radius:5px;
+}
+button:hover{
+	background:green;
+	box-shadow:0 2px 5px rgba(0,0,0,.5);
+}
+/*pour les button d'increment et decrement*/
+.nice-number {
+  display: inline-flex;
+  justify-content: stretch;
+}
+
+.nice-number input {
+  vertical-align: middle;
+  -moz-appearance: textfield;
+  box-sizing: content-box;
+  margin: 0;
+  text-align: center;
+}
+
+.nice-number input::-webkit-inner-spin-button,
+.nice-number input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*pour l'animation du menu*/
+
+/* Les animations d'entrée (« enter ») et de sortie (« leave »)  */
+/* peuvent utiliser différentes fonctions de durée et de temps.  */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+
+/*fin css anim menu*/
+
+#bigimg{
+	position: absolute;
+    margin-left: 33%;
+    margin-top: 15%;
+    width: 500px;
+    height: 500px;
+}
+#search{
+	width: 85%;
+}
+#sidebar{
+	height: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+/*.container {
+  height: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+}*/
+
+/*.sidenav {
+  position: relative;
+  text-align: center;
+  top: 50%;
+
+}
+*/
+
+.filtre_text {
+  display: inline-block;
+  padding: 1em 2em;
+  margin: 0.5em;
+  cursor: pointer;
+  color: #292929;
+  border-radius: 0.25em;
+  background: #efefef;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+  transition: 0.3s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+
+.filtre_text:hover {
+  background: #d6d6d6;
+  color: #101010;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
+}
+.filtre_text:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+}
+
+
+.snmenu:checked + .filtre_text {
+  background: #2ecc71;
+  color: #efefef;
+}
+.snmenu:checked + .filtre_text:hover {
+  background: #29b765;
+  color: #e2e2e2;
+}
+
+.hidden {
+  display: none;
+}
+
+
+#bigimg{
+  position: absolute;
+    margin-left: 33%;
+    margin-top: 15%;
+    width: 500px;
+    height: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+#headbar {
+  width: 160px;
+  background-color: #1c463a;
+  height: 1cm;
+}
+
+#headspace {
+  height: 1cm;
+  display: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 1cm;
+}
+
+.snbutton{
+  display: none;
+}
+
+#sidebar {
+    height: 100vh;
+    width: 160px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    background-color: #1c463a;
+    overflow-x: hidden;
+    top: 260px;
+}
+
+/*texte menu navigable*/
+#sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #afd045;
+    display:block;
+}
+/*effet de la souris menu navigable*/
+#sidebar input:hover {
+    color: #1c463a;
+    background-color: #afd045;
+    font-weight: bold;
+    width:100%;
+}
+@media screen and (max-width: 15cm) {
+  .basket {
+    display: none;
+  }
+  .snbutton {
+    display: inline;
+  }
+  #headbar {
+    width: 100vw;
+    background-color: orange;
+  }
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
