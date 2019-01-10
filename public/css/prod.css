@@ -1,33 +1,19 @@
-
-/*Le css du header*/
-header{
-  background-color:rgb(42, 83, 150); 
-  width: 100%;
-  height: 100%;
-  float: left;
-  background-image: url(3.jpg);
-}
 #sherch_title_bar{
-  width: 80%;
+  width: 90%;
 }
-
-
-
 .vignette_img_min{
-  max-width: 190px;
-  max-height: 190px;
+    max-width: 190px;
+    max-height: 190px;
+    margin: auto;
+    display: flex;
 }
-
 /*La fin du css du header*/
 #entete {
 width: 100%;
 height: 230px;
 display: block;
-
-
 /*margin: 0 auto 5px auto; sert a Centre le div entete*/
 } 
-
 /*Taille du conteneur central et alignement à gauche (du conteneur!)*/
 #centre {
 background-color: silver;
@@ -42,38 +28,24 @@ height: 251.253px;
 display: block;
 margin: auto; 
 }
-
 /*panier sous la photo de l'article */
 #panier{
   margin-left:3%;
 }
-
 #nb{
   size:30px;
   margin-left:5%;
 }
-
-
 /*disposition prix/panier*/
 .fle{
   display:flex;
-
-  margin-bottom: 222px;
-
 }
 
 /*zone menu navigable*/
 .sidenav {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    left: 0;
     background-color: #1c463a;
-    overflow-x: hidden;
     padding-top: 20px;
-    top:14.345em;
-    text-align: center;
+    top: 20px;
 }
 /*texte menu navigable*/
 .sidenav a {
@@ -90,42 +62,32 @@ margin: auto;
     font-weight: bold;
     width:100%;
 }
-
-
 /*centrage des produits*/
 .product_list {
-
-    margin-left: 230px;
-
-
+  margin-top: 60px;
+  text-align: center;
 }
-
 /*css de tout les produits*/
 .product {
     padding: 0px;
     display: inline-block;
-    height: 345px;
+    height: 308px;
     width: 300px;
-    border: solid 1px #1c463a;
-    margin: 3%;
+    margin: 1px;
     border-radius: 10px;
 }
-
-
 /*fond produit*/
 img{
   border:none;
 }
 .border{
   width: auto;
-  height:343px;
+  height:306px;
   border:solid 1px #d0d0d0;
   background-color:whitesmoke;
   margin:0 auto 0 auto;
   border-radius: 10px;
 }
-
-
 /*.vignette_pictos
 {
 
@@ -136,12 +98,10 @@ img{
   z-index:1;
 }
 */
-
 .vignette_info{
   height:64px;
   text-align:center;
 }
-
 .vignette_img{
   width:190px;
   height:190px;
@@ -149,6 +109,7 @@ img{
   margin:auto;
   margin-top:10px;
   cursor:pointer;
+  display: flex;
 }
 .vignette_remise{
   position: absolute;
@@ -205,15 +166,12 @@ button:hover{
   margin: 0;
   text-align: center;
 }
-
 .nice-number input::-webkit-inner-spin-button,
 .nice-number input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 /*pour l'animation du menu*/
-
 /* Les animations d'entrée (« enter ») et de sortie (« leave »)  */
 /* peuvent utiliser différentes fonctions de durée et de temps.  */
 .slide-fade-enter-active {
@@ -227,9 +185,7 @@ button:hover{
   transform: translateX(-10px);
   opacity: 0;
 }
-
 /*fin css anim menu*/
-
 #bigimg{
   position: absolute;
     margin-left: 33%;
@@ -240,32 +196,11 @@ button:hover{
 #search{
   width: 85%;
 }
-#sidebar{
-  height: 100%;
-  min-height: 100%;
-  margin: 0 auto;
-}
-
-
-* {
-  box-sizing: border-box;
-}
-/*.container {
-  height: 100%;
-  min-height: 100%;
-  margin: 0 auto;
-}*/
-
-/*.sidenav {
-  position: relative;
-  text-align: center;
-  top: 50%;
-
-}
-*/
 
 .filtre_text {
+  width: 48%;
   display: inline-block;
+  text-align: center;
   padding: 1em 2em;
   margin: 0.5em;
   cursor: pointer;
@@ -280,7 +215,6 @@ button:hover{
           user-select: none;
   cursor: default;
 }
-
 .filtre_text:hover {
   background: #d6d6d6;
   color: #101010;
@@ -291,8 +225,6 @@ button:hover{
           transform: translateY(2px);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
 }
-
-
 .snmenu:checked + .filtre_text {
   background: #2ecc71;
   color: #efefef;
@@ -301,12 +233,9 @@ button:hover{
   background: #29b765;
   color: #e2e2e2;
 }
-
 .hidden {
   display: none;
 }
-
-
 #bigimg{
   position: absolute;
     margin-left: 33%;
@@ -314,15 +243,11 @@ button:hover{
     width: 500px;
     height: 500px;
 }
-
-
-
 #headbar {
   width: 160px;
   background-color: #1c463a;
   height: 1cm;
 }
-
 #headspace {
   height: 1cm;
   display: none;
@@ -340,14 +265,9 @@ button:hover{
 #sidebar {
     height: 100vh;
     width: 160px;
-    position: absolute;
     z-index: 1;
-    left: 0;
-    background-color: #1c463a;
-    overflow-x: hidden;
-    top: 360px;
+    top: 332px;
 }
-
 /*texte menu navigable*/
 #sidebar a {
     padding: 6px 8px 6px 16px;
@@ -361,7 +281,7 @@ button:hover{
     color: #1c463a;
     background-color: #afd045;
     font-weight: bold;
-    width:100%;
+
 }
 @media screen and (max-width: 15cm) {
   .basket {
@@ -379,4 +299,10 @@ button:hover{
     top: 0;
     left: 0;
   }
+}
+.container{
+    position: sticky;
+    display: inline-flex;
+    top: 30px;
+    height: 100%;
 }

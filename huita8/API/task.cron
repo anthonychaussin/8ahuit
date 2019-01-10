@@ -1,1 +1,1 @@
-1 * * * * echo "hello" > test.txt
+1 * * * * wget -q -O - http://10.103.1.202/~huitahuit/huita8/API/?API=hello

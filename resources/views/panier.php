@@ -1,7 +1,4 @@
-<script src='http://10.103.1.202/~huitahuit/huita8/pages/lesprod/js/vue.js'></script>
-<script src='http://10.103.1.202/~huitahuit/huita8/pages/lesprod/js/vue-resource.js'></script>
-<script src='http://10.103.1.202/~huitahuit/huita8/pages/mPanier/js/main.js'></script>
-<script src="http://10.103.1.202/~huitahuit/huita8/pages/mPanier/JS/main2.js"></script>
+
 	<main id="app">
 
 		<ul  v-bind:class="{product_list:show }" type="none">

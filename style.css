@@ -1,9 +1,7 @@
-
+﻿
 /*NE PAS TOUCHER NON PLUS */
 /*Mais on peux pas charger tous les css en meme temps sinon il font beuger le css de chaque page*/
-@import 'huita8/pages/lesprod/css/style.css';
-@import 'huita8/pages/form_inscription-connection/style.css';
-@import 'huita8/pages/acceuil/CSS/style.css';
+/*!--> c'est pour ça qu'on a inventer les id et les class*/
 
 *{
 	margin: 0px;
@@ -13,32 +11,32 @@
 
 @font-face {
   font-family: baseFont;
-  src: url(huita8/font/base.ttf);
+  src: url(public/css/font/base.ttf);
 }
 
 @font-face {
   font-family: lightFont;
-  src: url(huita8/font/Light.ttf);
+  src: url(public/css/font/Light.ttf);
 }
 
 @font-face {
   font-family: boldFont;
-  src: url(huita8/font/Bold.ttf);
+  src: url(public/css/font/Bold.ttf);
 }
 
 @font-face {
   font-family: italicFont;
-  src: url(huita8/font/Italic.ttf);
+  src: url(public/css/font/Italic.ttf);
 }
 
 @font-face {
   font-family: lightItalicFont;
-  src: url(huita8/font/Light_Italic.ttf);
+  src: url(public/css/font/Light_Italic.ttf);
 }
 
 @font-face {
   font-family: boldItalicFont;
-  src: url(huita8/font/Bold_Italic.ttf);
+  src: url(public/css/font/Bold_Italic.ttf);
 }
 
 a{
@@ -50,4 +48,67 @@ a:visited {
 }
 a:link {
   text-decoration: none;
+}
+/*couleur bleu du body*/
+body {
+  background-color:#cceaea;
+/*  background-image: url(3.jpg);
+  background-size: 200% auto;
+  background-repeat: no-repeat;*/
+}
+
+
+/*Le css du header*/
+header{
+  background-image: url(resources/img/3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 30%;
+}
+header > a{
+  text-align: right;
+  float: left;
+  margin-top: 5px;
+  margin-left: -5px;
+}
+#menu{
+
+    display: flex;
+    text-align: justify;
+    width: 100%;
+}
+#menu > a > li{
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px 0px;
+}
+#menu > a > li:hover{
+  background-color: #5c5cff38;
+}
+
+
+#footsec{
+border-top: solid 3px black;
+  background-color: #76BAD3;
+  margin: 150px; 
+  text-align:center;
+
+}
+#main > nav{
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 1;
+}
+footer{
+
+  position: relative;
+}
+footer h3{
+  text-decoration: underline;
+}
+
+footer h5{
+  color: red;
 }

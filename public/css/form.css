@@ -1,20 +1,4 @@
 /*anthony chaussin*/
-#menu{
-
-    display: flex;
-    text-align: justify;
-    width: 100%;
-}
-li{
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    border-radius: 4px;
-    padding: 5px;
-}
-li:hover{
-  background-color: #5c5cff38;
-}
 .content {
     max-width: 50%;
     margin: 0 auto;

@@ -1,25 +1,3 @@
-/*couleur bleu du body*/
-body {
-	background-color:#cceaea;
-/*	background-image: url(3.jpg);
-	background-size: 200% auto;
-	background-repeat: no-repeat;*/
-}
-
-
-/*Le css du header*/
-header{
-/*	background-color:rgb(42, 83, 150); */
-	background-image: url(3.jpg);
-	background-size: 200% auto;
-	background-repeat: no-repeat;
-	width: 100%;
-
-	float: left;
-	background-color: #76BAD3;
-	
-}
-
 
 /*option css de connexion inscription et panier*/
 .menuHead{
@@ -91,21 +69,3 @@ float:left; }
  
 
 
-#footsec{
-border-top: solid 3px black;
-	background-color: #76BAD3;
-	margin: 150px; 
-	text-align:center;
-
-}
-footer{
-
-	position: relative;
-}
-footer h3{
-	text-decoration: underline;
-}
-
-footer h5{
-	color: red;
-}

@@ -1,18 +1,18 @@
 <?php
 
-use Illuminate\Http\Request;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+if (isset($_GET['API'])) {
+		switch ($_GET['API']) {
+			case 'PDF':
+				$temp = "huita8/API/facturePDF";
+				break;
+			case 'scrap':
+				$temp = "huita8/API/scrap.php";
+				break;
+			case '4ht8d4bsd54br5sh7et5h':
+				$temp = "";
+				break;
+			default:
+				header('Location: '. preg_split('[/]',strtolower( $_SERVER['SERVER_PROTOCOL']))[0].'://'.$_SERVER['HTTP_HOST'].'/~huitahuit');
+				break;
+		}
+	}
