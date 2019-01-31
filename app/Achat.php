@@ -1,4 +1,3 @@
-<!-- William FAVERO -->
 <?php
 
 class Achat{
@@ -12,16 +11,6 @@ class Achat{
 		if (! is_null($produit)) {
 			$this->ttc = $this->calculPrix();
 		}
-	}
-
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		return $this->$Attr = $value;
 	}
 
 	function calculPrix(){

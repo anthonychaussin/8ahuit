@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Accueil</title>
-	<link rel="stylesheet" type="text/css" href="http://10.103.1.202/~huitahuit/huita8/Vianney/acceuil/CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="http://10.103.1.202/~huitahuit/huita8/testAnton/Vianney/acceuil/CSS/style.css">
 </head>
 <body>
 <main id="app">
@@ -24,7 +24,7 @@
 	  	<a class="menuHead" href="http://10.103.1.202/~huitahuit/huita8/testAnton/Antonin/mPanier/view.php" id="Bt">Mon Panier</a>
 	  	
 	  </div>
-</header>		
+</header>	
 
 
 	</div>

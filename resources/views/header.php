@@ -22,21 +22,25 @@
 </head>
 <body id=main class=$name>
 	<header>
-		<a href=".?P=register">Connexion/Inscription</a>
-		<img src="resources/img/logo8.png">
+		<div style=" display: inline-block; width: 100%;"><img src="resources/img/logo8.png">
+			<div style="float: right;margin: 10px;background-color: #ffffffc2;border-radius: 5px;padding: 5px;">
+		<?php
+		if(isset($_SESSION["register"]["info"]["prenomclient"]) && isset($_SESSION["register"]["info"]["nomclient"])){	echo "<a href=\".?P=user\">".$lang['hello'].", ".$_SESSION["register"]["info"]["prenomclient"]." ".$_SESSION["register"]["info"]["nomclient"]."</a>";}
+		else{echo "<a href=\".?P=register\">".$lang['conex']."</a>";}
+		?></div></div>
 	</header>
 	<nav>
 		<ul id="menu">
-			<a href=".?P=home"><li class="limenu">Accueil</li></a>
-			<a href=".?P=shop"><li class="limenu">Boutique</li></a>
+			<a href=".?P=home"><li class="limenu"><?php echo $lang['home'] ?></li></a>
+			<a href=".?P=shop"><li class="limenu"><?php echo $lang['bout'] ?></li></a>
 			<?php
-			if (isset($_SESSION['user'])) {
-				if ($_SESSION['user'] == 'pcoli') {
-					echo '<a href=".?P=6"><li>Factures</li></a>';
+			if (isset($_SESSION['register'])) {
+				if ($_SESSION['register']['info']["nomclient"] == 'pcoli') {
+					echo '<a href=".?P=factures"><li>Factures</li></a>';
 				}
 			}
 			?>
-			<a href=".?P=about"><li class="limenu">A propos</li></a>
-			<a href=".?P=contact"><li class="limenu">Contact</li></a>
+			<a href=".?P=about"><li class="limenu"><?php echo $lang['prop'] ?></li></a>
+			<a href=".?P=contact"><li class="limenu"><?php echo $lang['cont'] ?></li></a>
 		</ul>
 	</nav>

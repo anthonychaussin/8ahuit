@@ -1,7 +1,6 @@
-<!-- William FAVERO -->
 <?php
-
-class Produit{
+// William FAVERO
+class Produit extends Model{
 	private $id;
 	private $lbl;
 	private $image;
@@ -22,17 +21,6 @@ class Produit{
 		$this->cat = $cat;
 		$this->ean = $ean;
 	}
-
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		return $this->$Attr = $value;
-	}
-
 	function loadAll(){
 			$ListeProduit = array();
 			$temp = Db::FindAll();

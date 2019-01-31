@@ -3,7 +3,7 @@
 <head>
 	<title>Huit A 8</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="http://infobanana.iut-acy.local/~griffona/8a8/Antonin/lesprod/css/style.css">
+	<link rel="stylesheet" type="text/css" href="http://10.103.1.202/~huitahuit/huita8/testAnton/Antonin/lesprod/css/style.css">
 </head>
 
 <body>
@@ -38,7 +38,9 @@
 	displayHentete();
 	
 
-	?>
+	?> 
+
+	<button></button>
 
 	<div>
 	<?php 
@@ -64,7 +66,6 @@
   </div>
 </div> -->
 
-</main>
 </main>
 <script src='http://10.103.1.202/~huitahuit/huita8/testAnton/Antonin/lesprod/js/vue.js'></script>
 <script src='http://10.103.1.202/~huitahuit/huita8/testAnton/Antonin/lesprod/js/vue-resource.js'></script>

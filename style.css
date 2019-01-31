@@ -1,4 +1,4 @@
-﻿
+
 /*NE PAS TOUCHER NON PLUS */
 /*Mais on peux pas charger tous les css en meme temps sinon il font beuger le css de chaque page*/
 /*!--> c'est pour ça qu'on a inventer les id et les class*/
@@ -60,7 +60,7 @@ body {
 
 /*Le css du header*/
 header{
-  background-image: url(resources/img/3.jpg);
+  background-image: url("http://media.sit.savoie-mont-blanc.com/original/172658/0-875638.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 30%;
@@ -110,5 +110,15 @@ footer h3{
 }
 
 footer h5{
-  color: red;
+  color: #d8edf5;
 }
+
+
+.big{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 16%;
+  left: 0px;
+}
+

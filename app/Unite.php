@@ -1,22 +1,12 @@
 <!-- William FAVERO -->
 <?php
 
-class Unite{
+class Unite extends Model{
 	private $id;
 	private $lbl;
 
 	public function __construct(){
 
-	}
-
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		return $this->$Attr = $value;
 	}
 
 	function loadAll(){

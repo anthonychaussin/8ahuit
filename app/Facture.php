@@ -1,4 +1,3 @@
-<!-- William FAVERO -->
 <?php
 
 class Facture{
@@ -17,16 +16,6 @@ class Facture{
 			$this->montant = $this->CalculTotal();
 		}
 		$this->date = date('d/m/Y');
-	}
-
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		return $this->$Attr = $value;
 	}
 
 	function loadAll(){

@@ -47,3 +47,4 @@ function FindFacturesByIdClient($idclient, $bdd){
 	}
 	return $facturesClient;
 }
+

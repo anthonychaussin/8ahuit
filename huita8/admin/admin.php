@@ -1,4 +1,4 @@
-<!-- William FAVERO -->
+<?php //William FAVERO ?>
 <!DOCTYPE html>
 <html>
 <head>

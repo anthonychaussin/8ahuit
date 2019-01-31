@@ -1,4 +1,4 @@
-<!-- William FAVERO -->
+<?php //William FAVERO ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,9 +28,10 @@
 				<?php
 				include_once "db.php";
 				include_once "../testprojetJohan/fonctionDB/fonctionsProduit.php";
-				include_once "../classes/Produit.php";
+				include_once "../../app/Produit.php";
 				$n=0;
 				$prods = RecupererAllProduits($bdd);
+				$cats = RecupererAllCategorieAdmin($bdd);
 				$produits = array();
 				//echo "Produits dans la bdd avant le premier foreach :<br>";
 				foreach ($prods as $prod)

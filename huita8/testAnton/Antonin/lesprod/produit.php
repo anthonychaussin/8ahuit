@@ -9,12 +9,12 @@ function displayHentete(){
 	  
 	  </div>-->
 	  <div id="buttonCoIn">
-	  <img class="imgHead" src="http://10.103.1.202/~huitahuit/huita8/Antonin/images/1.png" />
+	  <img class="imgHead" src="http://srv-peda.iut-acy.local/griffona/huitahuit/huita8/testAnton/Antonin/images/1.png" />
 	  	
-	  	<a class="menuHead" href="http://10.103.1.202/~huitahuit/huita8/Antonin/acceuil/view.php" class="buttonCoIn">Accueil</a>
+	  	<a class="menuHead" href="http://srv-peda.iut-acy.local/griffona/huitahuit/huita8/testAnton/Antonin/acceuil/view.php" class="buttonCoIn">Accueil</a>
 	  	<a class="menuHead" href="view.php" id="BtCo" class="buttonCoIn">Connexion</a>
 	  	<a class="menuHead" href="view.php" id="BtIn" class="buttonCoIn">Inscription</a>
-	  	<a class="menuHead" href="http://10.103.1.202/~huitahuit/huita8/Antonin/mPanier/view.php" id="BtPan">Mon Panier</a>
+	  	<a class="menuHead" href="http://srv-peda.iut-acy.local/griffona/huitahuit/huita8/testAnton/Antonin/mPanier/view.php" id="BtPan">Mon Panier</a>
 	  	
 	  </div>
 </header>	
@@ -70,7 +70,7 @@ function displayProd() {
 			
 			<div class="fle">
 				<div id="nb" class="box">
-					<counter><counter/>
+					<counter v-bind:id-produit="udata.idproduit"><counter/>
 				</div>
 				<p id="panier"><input type="button" class="btn" id="panier" value="Panier" s/> </p> 
 			</div>

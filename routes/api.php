@@ -1,18 +1,22 @@
 <?php
 
-if (isset($_GET['API'])) {
-		switch ($_GET['API']) {
-			case 'PDF':
-				$temp = "huita8/API/facturePDF";
-				break;
-			case 'scrap':
-				$temp = "huita8/API/scrap.php";
-				break;
-			case '4ht8d4bsd54br5sh7et5h':
-				$temp = "";
-				break;
-			default:
-				header('Location: '. preg_split('[/]',strtolower( $_SERVER['SERVER_PROTOCOL']))[0].'://'.$_SERVER['HTTP_HOST'].'/~huitahuit');
-				break;
-		}
+if(isset($_SESSION['register'])){
+	if ($_SESSION['register']['authorize'] == 'master' && $_SESSION['register']['info']['mdpclient'] == (new Client())->fonctionDb('FindClientByLog','pcolin'))->mdpclient {
+		if (isset($_GET['API'])) 
+{
+	switch ($_GET['API']) 
+	{
+		case 'PDF':
+			$temp = "huita8/API/facturePDF";
+			break;
+		case '4ht8d4bsd54br5sh7et5h':
+			$temp = "";
+			break;
+		default:
+			//session_destroy();
+			include 'resources/views/404.html';
+			break;
 	}
+}
+	}
+}

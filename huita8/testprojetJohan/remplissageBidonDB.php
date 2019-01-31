@@ -53,7 +53,7 @@ var_dump($tab);
 */
 
 // decommenter pour vider les produits et categories mon cadencier
-/*
-SupprimerAllProduits($bdd);
+
+SupprimeAllProduits($bdd);
 SupprimerCategoriesCadencier($bdd);
-*/
+

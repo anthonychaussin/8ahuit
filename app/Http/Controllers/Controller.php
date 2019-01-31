@@ -2,6 +2,7 @@
 //                  ANTHONY CHAUSSIN
 class Controller 
 {
+    public $data = []; 
 	function cssLoader($files)
 	{
 		if (is_array($files)) {foreach ($files as $value) {	echo "<link rel='stylesheet' type='text/css' href='public/css/".$value.".css'>";}}
@@ -13,7 +14,8 @@ class Controller
     function view($name, $data, $css = null, $js = null, $type = ".php")
     {
     	include "resources/lang/trad.php";
-    	$text = trad();
+    	$lang = trad();
+        if (isset($_SESSION['langue'])) { $lang = trad($_SESSION['langue']);}
     	include 'resources/views/header.php';
     	if (!is_null($js)) {
     		$this->jsLoader($js);
@@ -22,7 +24,7 @@ class Controller
     	include "resources/views/$name".$type;
     	if (!is_null($js)) {$this->jsLoader($js);}
     	echo "</body>";
-    	include 'resources/views/footer.html';
+    	include 'resources/views/footer.php';
     }
 }
 ?>

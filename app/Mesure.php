@@ -1,4 +1,3 @@
-<!-- William FAVERO -->
 <?php
 
 class Mesure{
@@ -9,17 +8,6 @@ class Mesure{
 		$this->id = $id;
 		$this->lbl = $lbl;
 	}
-
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		return $this->$Attr = $value;
-	}
-
 	function loadAll(){
 			$ListeMesure = array();
 			$temp = Db::FindAll();

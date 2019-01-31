@@ -116,9 +116,9 @@ function AddUnProduitApi($lblproduit, $tablblcategiories, $cheminimage, $ean, $b
 	$boo=$rep->execute([$lblproduit, $cheminimage, $ean]);
 	//var_dump($bdd->errorInfo());
 	$temp = $rep->errorinfo();
-		if ($temp[0]>0 && $temp[0]!=23000) 
+		if ($temp[0]>0 && $temp[0]!=23000 && $temp[0]<45000) 
 		{
-			var_dump($temp);
+			echo $temp[2];
 			$temp[0] = -1;
 		}
 
@@ -129,8 +129,8 @@ function AddUnProduitApi($lblproduit, $tablblcategiories, $cheminimage, $ean, $b
 		$rep->execute([$lblproduit, $categorie]);
 		//var_dump($bdd->errorInfo());
 		$temp = $rep->errorinfo();
-		if ($temp[0]>0 && $temp[0]!=23000) {
-			var_dump($temp);
+		if ($temp[0]>0 && $temp[0]!=23000 && $temp[0]<45000) {
+			echo $temp[2];
 			$temp[0] = -1;
 		}
 	}
@@ -330,6 +330,7 @@ function AddUnProduitKg($lblproduit, $tablblcategiories, $bdd, $prix, $present =
 		//var_dump($bdd->errorInfo());
 	}
 }
+
 function ModifierChampProduitById($idproduit, $champamodifier, $newvaleur, $bdd)
 {
 	$sql="UPDATE PRODUIT SET ";
@@ -356,11 +357,12 @@ function ModifierChampProduitById($idproduit, $champamodifier, $newvaleur, $bdd)
 	$rep->execute([]);*/
 	//var_dump($rep->errorInfo());
 }
+
 function SupprimeAllProduits($bdd){
-	$rep=$bdd->prepare("DELETE *
-		FROM APPARTIEN_A;");
-	$rep->execute([$afficher, $idproduit]);
-	$rep=$bdd->prepare("DELETE *
-		FROM produit;");
-	$rep->execute([$afficher, $idproduit]);
+	$rep=$bdd->prepare("TRUNCATE TABLE APPARTIEN_A;");
+	$rep->execute([]);
+	//var_dump($bdd->errorInfo());
+	$rep=$bdd->prepare("DELETE FROM PRODUIT;");
+	$rep->execute([]);
+	//var_dump($bdd->errorInfo());
 }

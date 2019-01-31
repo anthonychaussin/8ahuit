@@ -175,10 +175,10 @@ img{
 }
 */
 
-/*.vignette_img_min{
+.vignette_img_min{
 	width: 190px;
 	height: 190px;
-}*/
+}
 .vignette_info{
   height:64px;
   text-align:center;

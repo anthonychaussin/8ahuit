@@ -13,3 +13,5 @@
 /*http://10.103.1.202/~huitahuit/*/
 
 /*https://alligator.io/vuejs/vue-media-queries/*/
+
+/*https://blog.elao.com/fr/dev/pourquoi-devriez-vous-utiliser-vue-js-dans-vos-projets/*/

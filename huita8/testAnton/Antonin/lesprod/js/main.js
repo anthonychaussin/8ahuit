@@ -51,19 +51,19 @@ if (nbrColumns > 1) {
 
 /* crée les compteur de prod*/
 Vue.component('counter',{
+    props: ['idProduit'],
     data: function() {
-        return {count:0}
+        return {idProduit:this.idProduit}
     },
     methods:{
     increment: function(){
-        this.count ++
+      console.log(this.idProduit)
+      //this.count ++
     },
     decrement:function(){
-      
-      if (this.count > 0) 
-        this.count --
-      
-        
+      console.log(this.idProduit)
+      //if (this.count > 0) 
+        //this.count --
     }
     },
     template:`<div>

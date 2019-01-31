@@ -1,44 +1,29 @@
-<!-- William FAVERO -->
 <?php
 
-class Client{
+class Client extends Model{
 
-	private $id;
-	private $nom;
-	private $prenom;
-	private $dateArrivee;
-	private $dateDepart;
-	private $nReservation;
+	public $idclient;
+	public $nomclient;
+	public $prenomclient;
+	public $loginclient;
+	public $mdpclient;
+	public $mailclient;
+	public $arrivclient;
+	public $departclient;
+	public $noresaclient;
+	public $archiclient;
+	public $telclient;
 
-	public function __construct($id = null, $nom = null, $prenom = null, $dateArrivee = null, $dateDepart = null, $nReservation = null){
-		$this->id = $id;
-		$this->nom = $nom;
-		$this->prenom = $prenom;
-		$this->dateArrivee = $dateArrivee;
-		$this->dateDepart = $dateDepart;
-		$this->nReservation = $nReservation;
+	public function __construct($login = null, $mdp = null, $nom = null, $prenom = null, $dateArrivee = null, $dateDepart = null, $nReservation = null, $id = null){
+		$this->loginclient = $login;
+		$this->mailclient = $login;
+		$this->mdpclient = $mdp;
+		$this->idclient = $id;
+		$this->nomclient = $nom;
+		$this->prenomclient = $prenom;
+		$this->arrivclient = $dateArrivee;
+		$this->departclient = $dateDepart;
+		$this->noresaclient = $nReservation;
+		$this->archiclient = true;
 	}
-
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		$this->$Attr = $value;
-	}
-
-	function loadAll(){
-			$ListeClients = array();
-			$temp = Db::FindAll();
-			$temp->setFetchMode(PDO::FETCH_CLASS|PDO::FECT_PROPS_LATE, "Client");
-			while ($row = $temp->fetch())
-			{
-				array_push($ListeClient,$row);
-			}
-			return $ListeClient;
-
-	}
-
 }

@@ -39,8 +39,9 @@ function RecupererAllCategorieAdmin($bdd)
 }
 
 function SupprimerCategoriesCadencier($bdd){
-	$rep=$bdd->prepare("DELETE *
+	$rep=$bdd->prepare("DELETE 
 		FROM CATEGORIE
 		WHERE categorieadmin=0;");
-	$rep->execute([$afficher, $idproduit]);
+	$rep->execute([]);
+	//var_dump($bdd->errorInfo());
 }

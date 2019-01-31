@@ -1,0 +1,29 @@
+.middle{
+  display: flex;
+  margin: auto;
+}
+#fichier{
+  margin-top: 20px;
+}
+.text{
+  text-align: center;
+  display: block;
+}
+#bar1{
+  height: 20px;
+    margin: 20px;
+    border: solid;
+    border-radius: 5px;
+    display: none;
+}
+#bar2{
+  height: 20px;
+    background: blue;
+    width: 0%;
+}
+#erreur{
+  color: red;
+}
+.hide{
+  display: none;
+}

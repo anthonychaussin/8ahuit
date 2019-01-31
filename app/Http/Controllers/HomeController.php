@@ -9,6 +9,6 @@ class HomeController extends Controller
 	{
 		//aller chercher les données et les mettre dans $data
 		$data = [];
-		return $this->view ('acceuil', ["data" => $data], ["acceuil"], null, ".html");
+		return $this->view ('acceuil', $this->data, ["acceuil"], null);
 	}
 }

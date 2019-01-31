@@ -1,8 +1,9 @@
 <?php
 
 /*Anthony CHAUSSIN 30/12/2018 NE TOUCHER QU'AUX ENDROITS PREVUES ! */
-
+function secur($string){return htmlspecialchars($string, ENT_QUOTES|ENT_SUBSTITUTE);}
 $root =  preg_split('[/]',strtolower( $_SERVER['SERVER_PROTOCOL']))[0].'://'.$_SERVER['HTTP_HOST']."/".preg_split('[/]',$_SERVER['REQUEST_URI'])[1];session_start();include 'autoload.php';
+$GLOBALS['root'] = $root;
 if (isset($_GET['API'])) {	include 'routes/api.php';}
 elseif(isset($_GET['U'])){switch (strtolower($_GET['U'])) { 
 
@@ -10,6 +11,7 @@ elseif(isset($_GET['U'])){switch (strtolower($_GET['U'])) {
 //$header vous demande si vous voulez la mise en page header/footer du site
 //$dir est votre repertoir de travail /~huitahuit/huita8/$dir
 //vous pouvez ajoutez autant de racourci que vous voulez
+//10.103.1.202/~huitahuit?U=
 
 /*     SECTION MODIFIABLE */
 

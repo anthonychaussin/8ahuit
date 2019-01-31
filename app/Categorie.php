@@ -1,23 +1,12 @@
-<!-- William FAVERO -->
 <?php
 
-class Categorie{
+class Categorie extends Model{
 	private $id;
 	private $lbl;
 
 	public function __construct($id = null, $lbl = null){
 		$this->id = $id;
 		$this->lbl = $lbl;
-	}
-
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		return $this->$Attr = $value;
 	}
 
 	function loadAll(){
