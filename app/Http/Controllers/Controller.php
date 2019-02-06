@@ -16,6 +16,9 @@ class Controller
     	include "resources/lang/trad.php";
     	$lang = trad();
         if (isset($_SESSION['langue'])) { $lang = trad($_SESSION['langue']);}
+        elseif (isset($_SESSION['lang'])) {
+            $lang = trad($_SESSION['lang']);
+        }
     	include 'resources/views/header.php';
     	if (!is_null($js)) {
     		$this->jsLoader($js);

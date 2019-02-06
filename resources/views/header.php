@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="keywords" lang="xx" content="Les mots clés ici">
+	<meta http-equiv="Content-Type" content="text/html"/>
+	<meta charset="utf-8">
+	<meta name="keywords" lang="fr" content="Les mots clés ici">
 	<meta name="reply-to" content="email">
 	<meta name="category" content="nom">
 	<meta name="distribution" content="global">

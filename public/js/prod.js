@@ -43,14 +43,15 @@ Vue.directive('scroll', {
 
 /*pour afficher les donnée et autre*/
 var dataURLSecour = "http://10.103.1.202/~huitahuit/huita8/Antonin/api/produits.json"
-var dataURLTest = "./app/recupProd.php"
+/*var dataURLTest = "./app/recupProd.php"*/
+var dataURLTest = "./?API=recup"
 console.log(dataURLTest)
 new Vue({
     el: "#app",
     mounted() {this.load(), 
       this.$http.get(dataURLTest).then(function(reponse)
       {
-        console.log('succes',reponse)
+        console.log('succes',reponse.body)
       },function(reponse)
       {
         console.log('erreur',reponse)

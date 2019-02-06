@@ -35,5 +35,5 @@
 			<input type="submit" name="register">
 		</form>
 	</div>
-	<div onclick="document.location.href = <?php echo "'".$root."'" ?>"> X </div>
+	<div onclick="document.location.href = <?php echo "'".$GLOBALS['root'] ."'" ?>"> X </div>
 </article>

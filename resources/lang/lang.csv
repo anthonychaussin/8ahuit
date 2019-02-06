@@ -1,4 +1,4 @@
-key;Anglais;Francais;Espagnol;Italien;Allemand
+key;en;fr;es;it;de
 home;Home;Accueil;Página de inicio;Casa;Haus
 descri;A stylish supermarket on two levels, offering everything you need for your stay;Un supermarché élégant sur deux niveaux, proposant tout ce dont vous avez besoin pour votre séjour;Un supermercado con estilo en dos niveles, que ofrece todo que lo necesario para su estancia;Un supermercato elegante su due livelli, offrendo tutto il che necessario per il vostro soggiorno;Eine stilvolle Supermarkt auf zwei Ebenen, bietet alles, was Sie für Ihren Aufenthalt benötigen
 mont;Enjoy an impregnable view and a landscape that will make you forget your everyday life, away!;Profitez d'une vue imprennable et d'un paysage qui vous fera oublier votre quotidien, evadez vous!;Disfrutar de una vista inexpugnable y un paisaje que te hará olvidar tu vida cotidiana, lejos!;Godere di una vista inespugnabile e un paesaggio che vi farà dimenticare la vita quotidiana, via!;Genießen Sie eine uneinnehmbare Aussicht und eine Landschaft, die Sie entfernt den Alltag vergessen lässt!
@@ -31,7 +31,7 @@ pren;First name;Prenom;Nombre;Primo nome;Vorname
 numtel;Phone number;Numéro de téléphone;Número de teléfono;Numero di telefono;Telefonnummer
 numres;Booking number;Numéro de réservation;Número de reserva;Numero di prenotazione;Buchungsnummer
 confmdp;Confirm the password;Confirmer le mot de passe;Confirme la contraseña;Confermare la password;Bestätigen Sie das Kennwort
-start;Date of arrival;Date d'arrivé;Fecha de llegada;Data di arrivo;Datum der Ankunft
+start;Date of arrival;Date d'arrivée;Fecha de llegada;Data di arrivo;Datum der Ankunft
 end;Date of departure;Date de départ;Fecha de salida;Data di partenza;Datum der Abreise
 hello;Hello;Bonjour;Hola;Ciao;Hallo
 myPan;My basket;Mon panier;Mi cesta;Il mio carrello;Mein Warenkorb

@@ -186,13 +186,13 @@ button:hover{
   opacity: 0;
 }
 /*fin css anim menu*/
-#bigimg{
+/*#bigimg{
   position: absolute;
     margin-left: 33%;
-    margin-top: 15%;
+    margin-top: 10%;
     width: 500px;
     height: 500px;
-}
+}*/
 #search{
   width: 85%;
 }
@@ -239,10 +239,14 @@ button:hover{
 #bigimg{
   position: absolute;
     margin-left: 33%;
-    margin-top: 15%;
+    margin-top: 10%;
     width: 500px;
     height: 500px;
+    z-index: 4;
 }
+
+
+
 #headbar {
   width: 160px;
   background-color: #1c463a;

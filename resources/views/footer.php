@@ -13,11 +13,12 @@
 				<a href="mailto:spar1950@wanadoo.fr"><h5>spar1950@wanadoo.fr</h5></a>
 			<h4><?php echo $lang['tel'] ?> :</h4>
 				<h5>04 79 00 69 72</h5>
-			<a href=<?php echo langue("Francais");?>>FR</a>
-			<a href=<?php echo langue("Anglais");?>>EG</a>
-			<a href=<?php echo langue("Espagnol");?>>ES</a>
-			<a href=<?php echo langue("Italien");?>>ITA</a>
-			<a href=<?php echo langue("Allemand");?>>GE</a>
+			<a href=<?php echo langue("fr");?>>FR</a>
+			<a href=<?php echo langue("en");?>>EN</a>
+			<a href=<?php echo langue("es");?>>ES</a>
+			<a href=<?php echo langue("it");?>>ITA</a>
+			<a href=<?php echo langue("de");?>>DE</a>
+			<!-- <a href=<?php //echo langue("Russe");?>>RU</a> -->
 		</div>	
 	</section>
 </footer>

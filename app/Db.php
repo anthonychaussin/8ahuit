@@ -5,7 +5,7 @@
  */
 class Db extends Model
 {
-	private $bdString;
+	protected $dbString;
 	function __construct()
 	{
 		switch ($_SERVER['HTTP_HOST']) {
@@ -19,17 +19,7 @@ class Db extends Model
 				throw new Exception("Erreur ce serveur est inconu et/ou n'est lier à aucune base de donnée", 1);
 				die();				
 				break;
-		}
-		
-	}
-	public function __get($Attr)
-	{
-		return $this->$Attr;
-	}
-
-	public function __set($Attr, $value)
-	{
-		return $this->$Attr = $value;
+		}	
 	}
 
 	public function special($object)

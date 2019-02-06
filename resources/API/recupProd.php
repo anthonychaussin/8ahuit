@@ -26,8 +26,8 @@ JOIN CATEGORIE c ON a.idcategorie=c.idcategorie;");
 	//echo json_encode($tabproduits);
 	return $tabproduits;
 }
-$bdd = new PDO("mysql:host=localhost;dbname=huitahuit", "huitahuit", "groupe1");
-$retour = RecupererAllProduits($bdd);
+
+$retour = RecupererAllProduits((new Db())->dbString);
 
 echo json_encode($retour);
 

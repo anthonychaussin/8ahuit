@@ -2,7 +2,8 @@
 
 /*Anthony CHAUSSIN 30/12/2018 NE TOUCHER QU'AUX ENDROITS PREVUES ! */
 function secur($string){return htmlspecialchars($string, ENT_QUOTES|ENT_SUBSTITUTE);}
-$root =  preg_split('[/]',strtolower( $_SERVER['SERVER_PROTOCOL']))[0].'://'.$_SERVER['HTTP_HOST']."/".preg_split('[/]',$_SERVER['REQUEST_URI'])[1];session_start();include 'autoload.php';
+function geo(){$_SESSION['lang'] =  substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);}
+$root =  preg_split('[/]',strtolower( $_SERVER['SERVER_PROTOCOL']))[0].'://'.$_SERVER['HTTP_HOST']."/".preg_split('[/]',$_SERVER['REQUEST_URI'])[1];session_start();geo();include 'autoload.php';
 $GLOBALS['root'] = $root;
 if (isset($_GET['API'])) {	include 'routes/api.php';}
 elseif(isset($_GET['U'])){switch (strtolower($_GET['U'])) { 

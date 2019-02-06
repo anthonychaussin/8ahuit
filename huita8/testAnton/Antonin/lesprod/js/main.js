@@ -45,30 +45,74 @@ if (nbrColumns > 1) {
 }
 
 
+var panier = [];
 
+var prodPanier = class prodPanier {
+  constructor (id){
+    this.id = id;
+    this.qte = 1;
+  }
+}
 
+function getProduitPanier(id){
+  console.log("-" + id);
+  panier.forEach(function(prod) {
+    if (prod.id == id) {
+      console.log("--" + prod.id);
+      return prod;
+    }
+  });
+  return null;
+}
 
+function removeProduitPanier(id){
+  let index = 0;
+  panier.forEach(function(prod) {
+    if (prod.id == id) {
+      panier.splice(index,1);
+      return false;
+    }
+    index++;
+  });
+  return true;
+}
 
 /* crée les compteur de prod*/
 Vue.component('counter',{
     props: ['idProduit'],
     data: function() {
-        return {idProduit:this.idProduit}
+      return {idProduit:this.idProduit}
     },
     methods:{
     increment: function(){
-      console.log(this.idProduit)
-      //this.count ++
+      let prod = getProduitPanier(this.idProduit);
+      console.log(prod);
+      if (prod == null) {
+        panier.push(new prodPanier(this.idProduit));
+      } else {
+        prod.qte++;
+      }
+      console.log(panier);
     },
-    decrement:function(){
-      console.log(this.idProduit)
-      //if (this.count > 0) 
-        //this.count --
+    decrement: function(){
+      let prod = getProduitPanier(this.idProduit);
+      console.log(prod);
+      if(prod != null){
+        if (prod.qte <= 1) {
+          removeProduitPanier(this.idProduit);
+        } else {
+          prod.qte--;
+        }
+      }
+      console.log(panier);
+    },
+    quantity: function(){
+      return getProduitPanier(this.idProduit).qte;
     }
     },
     template:`<div>
     <button @click="decrement">-</button>
-    <input type="text" v-bind:value="count" class="barreNbPro"></input>
+    <input type="text" v-bind:value="quantity" class="barreNbPro"></input>
     <button @click="increment">+</button>
     </div>`
 })
