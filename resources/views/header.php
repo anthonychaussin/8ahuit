@@ -31,7 +31,7 @@
 		?></div></div>
 	</header>
 	<nav>
-		<ul id="menu">
+		<ul class="menu">
 			<a href=".?P=home"><li class="limenu"><?php echo $lang['home'] ?></li></a>
 			<a href=".?P=shop"><li class="limenu"><?php echo $lang['bout'] ?></li></a>
 			<?php
@@ -45,3 +45,4 @@
 			<a href=".?P=contact"><li class="limenu"><?php echo $lang['cont'] ?></li></a>
 		</ul>
 	</nav>
+	<?php if (isset($data['error'])) {var_dump($data["error"]);}?>

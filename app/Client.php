@@ -5,9 +5,8 @@ class Client extends Model{
 	public $idclient;
 	public $nomclient;
 	public $prenomclient;
-	public $loginclient;
-	public $mdpclient;
 	public $mailclient;
+	public $mdpclient;
 	public $arrivclient;
 	public $departclient;
 	public $noresaclient;
@@ -15,7 +14,6 @@ class Client extends Model{
 	public $telclient;
 
 	public function __construct($login = null, $mdp = null, $nom = null, $prenom = null, $dateArrivee = null, $dateDepart = null, $nReservation = null, $id = null){
-		$this->loginclient = $login;
 		$this->mailclient = $login;
 		$this->mdpclient = $mdp;
 		$this->idclient = $id;

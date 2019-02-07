@@ -51,17 +51,13 @@
 				v-for="udata in filteredPosts "  > 
 				<div class="border" :id="udata.idproduit+'_container'"> 
 
-					<div class="vignette_title" v-if="udata.remise"> 
-						<p>
-							<span><?php echo $lang['test'] ?>  {{udata.lblcategorie}}</span>
-						</p>
-					</div>
+					
 					
 
 					<div class="vignette_img" >
 						<div class="vignette_remise" v-if="udata.remise">
 							<p>
-							<span class="vignette_remise_txt"><?php echo $lang['rem'] ?></span>
+							<span class="vignette_remise_txt"><?php echo $lang['rem'] ?>{{udata.remise}}</span>
 							</p>
 						</div>
 						<img :src="'https://moncadencierperso.com/'+ udata.cheminimage" class="vignette_img_min" onclick="lightBox(this.src, '')">

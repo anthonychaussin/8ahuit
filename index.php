@@ -16,6 +16,11 @@ elseif(isset($_GET['U'])){switch (strtolower($_GET['U'])) {
 
 /*     SECTION MODIFIABLE */
 
+		case 'z':
+			$header = True;
+			$dir = "anthony";
+			break;
+
 		case 'w':
 			$header = False;
 			$dir = "admin";	

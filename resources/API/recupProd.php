@@ -1,4 +1,5 @@
 <?php 
+
 function RecupererAllProduits($bdd)
 {
 	$tabproduits = array();

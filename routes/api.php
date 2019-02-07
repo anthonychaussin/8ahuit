@@ -25,6 +25,9 @@ else{
 		case 'recup':
 			include "resources/API/recupProd.php";
 			break;
+		case 'panier':
+			include "resources/API/panier.php";
+			break;
 		default:
 			include 'resources/views/404.html';
 			break;

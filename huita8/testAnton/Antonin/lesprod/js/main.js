@@ -44,78 +44,113 @@ if (nbrColumns > 1) {
   document.getElementById("product_list").style.gridTemplateColumns = "repeat(" + nbrColumns + ",auto)";
 }
 
+//Code pour le système de panier
+function getCookie(name)
+{
+    var re = new RegExp(" panier" + "=([^;]+)");
+    var value = re.exec(document.cookie);
+    return (value != null) ? unescape(value[1]) : null;
+}
 
 var panier = [];
 
-var prodPanier = class prodPanier {
-  constructor (id){
-    this.id = id;
-    this.qte = 1;
+console.log(document.cookie);
+
+console.log("panier récupéré")
+console.log(getCookie(panier));
+console.log(JSON.parse(getCookie(panier)));
+panier = JSON.parse(getCookie(panier));
+
+console.log(panier);
+
+var prodPanier = class {
+  constructor (idpp,qte){
+    this.idpp = idpp;
+    this.qte = qte;
   }
 }
 
-function getProduitPanier(id){
-  console.log("-" + id);
+function getProduitPanierQuantity(idpp){
+  let quantity = 0;
   panier.forEach(function(prod) {
-    if (prod.id == id) {
-      console.log("--" + prod.id);
-      return prod;
+    console.log(typeof prod.idpp+"=="+typeof idpp);
+    console.log(prod.idpp+"=="+idpp);
+    if (prod.idpp == idpp) {
+      console.log("ça passe");
+      quantity = prod.qte;
     }
   });
-  return null;
+  console.log("ça passe pas");
+  return quantity;
 }
 
-function removeProduitPanier(id){
+function setProduitPanierQuantity(idpp,qte){
+  panier.forEach(function(prod) {
+    if (prod.idpp == idpp) {
+      prod.qte = qte;
+      return true;
+    }
+  });
+  return false;
+}
+
+function removeProduitPanier(idpp){
   let index = 0;
   panier.forEach(function(prod) {
-    if (prod.id == id) {
-      panier.splice(index,1);
-      return false;
+    if (prod.idpp == idpp) {
+      panier.splice(index, 1);
+      return index;
     }
     index++;
   });
-  return true;
+  return -1;
 }
 
 /* crée les compteur de prod*/
 Vue.component('counter',{
     props: ['idProduit'],
     data: function() {
-      return {idProduit:this.idProduit}
+        return {
+          count:getProduitPanierQuantity(this.idProduit)
+        }
     },
     methods:{
-    increment: function(){
-      let prod = getProduitPanier(this.idProduit);
-      console.log(prod);
-      if (prod == null) {
-        panier.push(new prodPanier(this.idProduit));
-      } else {
-        prod.qte++;
-      }
-      console.log(panier);
-    },
-    decrement: function(){
-      let prod = getProduitPanier(this.idProduit);
-      console.log(prod);
-      if(prod != null){
-        if (prod.qte <= 1) {
-          removeProduitPanier(this.idProduit);
-        } else {
-          prod.qte--;
+      update:function(){
+        console.log("count : "+this.count);
+        console.log(panier);
+        if(getProduitPanierQuantity(this.idProduit) == 0) {
+          panier.push(new prodPanier(this.idProduit,this.count));
         }
+        else if(this.count == 0){
+          removeProduitPanier(this.idProduit);
+        }
+        else {
+          setProduitPanierQuantity(this.idProduit,this.count);
+        }
+        var date = new Date();
+        date.setTime(date.getTime() + 24 * 3600 * 1000);
+        console.log("panier=" + JSON.stringify(panier) + "; expires = " + date.toUTCString() + "; path=/;");
+        document.cookie = "panier=" + JSON.stringify(panier) + "; expires = " + date.toUTCString() + "; path=/;";
+      },
+      increment: function(){
+        this.count ++;
+        this.update();
+      },
+      decrement:function(){ 
+        if (this.count > 0) {
+          this.count --;
+        }
+        this.update();
       }
-      console.log(panier);
-    },
-    quantity: function(){
-      return getProduitPanier(this.idProduit).qte;
-    }
     },
     template:`<div>
     <button @click="decrement">-</button>
-    <input type="text" v-bind:value="quantity" class="barreNbPro"></input>
+    <input type="text" v-bind:value="count" class="barreNbPro"></input>
     <button @click="increment">+</button>
     </div>`
 })
+
+
 /*pour afficher les donnée et autre*/
 var dataURL = "http://10.103.1.202/~huitahuit/huita8/testAnton/Antonin/api/produits.json"
 var dataURLTest = "http://10.103.1.202/~huitahuit/huita8/testAnton/Antonin/api/index.php"

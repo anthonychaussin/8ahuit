@@ -70,7 +70,6 @@ create table CLIENT
    IDCLIENT             INT NOT NULL AUTO_INCREMENT,
    NOMCLIENT            varchar(20) not null,
    PRENOMCLIENT         varchar(20) not null,
-   LOGINCLIENT          varchar(20) not null,
    MDPCLIENT            varchar(32) not null,
    MAILCLIENT           varchar(40) not null,
    NUMERORESERVATION    int not null,
