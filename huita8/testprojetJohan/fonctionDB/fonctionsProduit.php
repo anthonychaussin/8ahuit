@@ -47,7 +47,7 @@ JOIN CATEGORIE c ON a.idcategorie=c.idcategorie;");
 		if ($n!=0 && $row["idproduit"]==$tabproduits[$v]["idproduit"]) {
 			$tabproduits[$v]["lblcategorie"][]=$row["lblcategorie"];
 		}else{
-			$tabproduits[$n]=array('idproduit' => intval($row["idproduit"]), 'lblproduit' => $row["lblproduit"], 'detailproduit' => $row["detailproduit"], 'prix' => $row["prix"],'lblmesure' => $row["lblmesure"],'lblcategorie' => array($row["lblcategorie"]), 'pourcentagepresence' => $row["pourcentagepresence"], 'remise' => $row["remise"], 'cheminimage' => $row["cheminimage"],'present' => $row["present"],'ean' => $row["ean"]);
+			$tabproduits[$n]=array('idproduit' => intval($row["idproduit"]), 'lblproduit' => $row["lblproduit"], 'detailproduit' => $row["detailproduit"], 'prix' => $row["prix"],'lblmesure' => $row["lblmesure"],'lblcategorie' => array($row["lblcategorie"]), 'pourcentagepresence' => $row["pourcentagepresence"], 'remise' => $row["remise"], 'cheminimage' => $row["cheminimage"],'present' => $row["present"],);
 			$n=$n+1;
 		}
 	}
@@ -66,8 +66,7 @@ function RecupererAllProduitsAssigneAdmin($bdd)
 FROM PRODUIT p
 JOIN MESURE m ON p.idmesure=m.idmesure
 JOIN APPARTIEN_A a ON p.idproduit=a.idproduit
-JOIN CATEGORIE c ON a.idcategorie=c.idcategorie
-WHERE c.categorieadmin=true;");
+JOIN CATEGORIE c ON a.idcategorie=c.idcategorie;");
 	$rep->execute();
 
 	while ($row = $rep->fetch(PDO::FETCH_ASSOC)) {
@@ -99,7 +98,7 @@ WHERE p.idproduit=?;");
 	
 	while ($row = $rep->fetch(PDO::FETCH_ASSOC)) {
 		if (is_null($unproduit)) {
-			$unproduit=array('idproduit' => intval($row["idproduit"]), 'lblproduit' => $row["lblproduit"], 'detailproduit' => $row["detailproduit"], 'prix' => $row["prix"],'lblmesure' => $row["lblmesure"],'lblcategorie' => array($row["lblcategorie"]), 'pourcentagepresence' => $row["pourcentagepresence"], 'remise' => $row["remise"], 'cheminimage' => $row["cheminimage"],'present' => $row["present"],'ean' => $row["ean"]);
+			$unproduit=array('idproduit' => intval($row["idproduit"]), 'lblproduit' => $row["lblproduit"], 'detailproduit' => $row["detailproduit"], 'prix' => $row["prix"],'lblmesure' => $row["lblmesure"],'lblcategorie' => array($row["lblcategorie"]), 'pourcentagepresence' => $row["pourcentagepresence"], 'remise' => $row["remise"], 'cheminimage' => $row["cheminimage"],'present' => $row["present"]);
 		}else{
 			$unproduit["lblcategorie"][]=$row["lblcategorie"];
 		}
@@ -109,154 +108,32 @@ WHERE p.idproduit=?;");
 }
 
 
-function AddUnProduitApi($lblproduit, $tablblcategiories, $cheminimage, $ean, $bdd)
+function AddUnProduitApi($lblproduit, $cheminimage, $bdd)
 {
-	$rep=$bdd->prepare("INSERT INTO PRODUIT (lblproduit, cheminimage, idmesure, ean) VALUES 
-		(?, ?, 1, ?);");
-	$boo=$rep->execute([$lblproduit, $cheminimage, $ean]);
-	//var_dump($bdd->errorInfo());
+	$rep=$bdd->prepare("INSERT INTO PRODUIT (lblproduit, cheminimage, idmesure) VALUES 
+		(?, ?, 1);");
+	$boo=$rep->execute([$lblproduit, $cheminimage]);
+	var_dump($bdd->errorInfo());
 	$temp = $rep->errorinfo();
+
 		if ($temp[0]>0 && $temp[0]!=23000 && $temp[0]<45000) 
 		{
 			echo $temp[2];
 			$temp[0] = -1;
 		}
-
-	foreach ($tablblcategiories as $categorie) {
-		$rep=$bdd->prepare("INSERT INTO APPARTIEN_A (idproduit, idcategorie) VALUES 
-			((SELECT idproduit FROM PRODUIT WHERE lblproduit = ? ),
-			(SELECT idcategorie FROM CATEGORIE WHERE lblcategorie = ? AND categorieadmin=0) );");
-		$rep->execute([$lblproduit, $categorie]);
-		//var_dump($bdd->errorInfo());
-		$temp = $rep->errorinfo();
-		if ($temp[0]>0 && $temp[0]!=23000 && $temp[0]<45000) {
-			echo $temp[2];
-			$temp[0] = -1;
-		}
-	}
 	return $boo;
 }
 
 
 function AddProduitsJsonPourApi($jsonproduits, $bdd)
 {
+	echo "string";
 	
-	//var_dump(json_decode($jsonproduits, true, 100000));
-	$verifcar = false;
+	var_dump(json_decode($jsonproduits, true, 100000));
+	//$verifcar = false;
 	$boo = true;
-	foreach (json_decode($jsonproduits, true, 100000) as  $unproduit) 
-	{
 
-		 /*
-		foreach ($unproduit as $key => $unchant) 
-		{
-			//var_dump("testforeach1");
-			if ($key=="cat") 
-			{
-				//var_dump("testif1");
-
-				foreach ($unchant as $unecat) 
-				{
-
-					$rep=$bdd->prepare("SELECT * FROM CATEGORIE
-						WHERE lblcategorie=? AND categorieadmin=0;");
-					$rep->execute([$unecat]);
-					//var_dump($bdd->errorInfo());
-					$row = $rep->fetch(PDO::FETCH_ASSOC);
-					if ($row==false) 
-					{
-						AjouterCategorie($unecat, $bdd, false);
-					}
-				}
-				$verifcar=true;
-			}
-			
-			if ($key=="produit" && $verifcar) 
-			{				
-					
-				$rep=$bdd->prepare("SELECT * FROM PRODUIT
-					WHERE lblproduit=?;");
-				$rep->execute([$unchant]);
-				//var_dump($bdd->errorInfo());
-				$row = $rep->fetch(PDO::FETCH_ASSOC);
-				if ($row==false) {
-					if(!$boo)
-					{
-
-						AddUnProduitApi($unproduit["produit"], $unproduit["cat"], $unproduit["image"], $unproduit["ean"], $bdd);
-					}
-					else
-					{
-
-						$boo = AddUnProduitApi($unproduit["produit"], $unproduit["cat"], $unproduit["image"], $unproduit["ean"], $bdd);
-					}	
-				}
-			}
-		}*/
-		/*
-		foreach ($unproduit["cat"] as $unecat) 
-		{
-
-			$rep=$bdd->prepare("SELECT * FROM CATEGORIE
-			WHERE lblcategorie=? AND categorieadmin=0;");
-			$rep->execute([$unecat]);
-			//var_dump($bdd->errorInfo());
-			$row = $rep->fetch(PDO::FETCH_ASSOC);
-			if ($row==false) 
-			{
-				AjouterCategorie($unecat, $bdd, false);
-			}
-		}
-
-		$rep=$bdd->prepare("SELECT * FROM PRODUIT
-			WHERE lblproduit=?;");
-		$rep->execute([$unproduit["produit"]]);
-		//var_dump($bdd->errorInfo());
-		$row = $rep->fetch(PDO::FETCH_ASSOC);
-		if ($row==false) 
-		{
-			if(!$boo)
-			{
-				AddUnProduitApi($unproduit["produit"], $unproduit["cat"], $unproduit["image"], $unproduit["ean"], $bdd);
-			}
-			else
-			{
-				$boo = AddUnProduitApi($unproduit["produit"], $unproduit["cat"], $unproduit["image"], $unproduit["ean"], $bdd);
-			}	
-		}*/
-
-		foreach ($unproduit as $key => $unchant) 
-		{
-			//var_dump("testforeach1");
-			if ($key=="cat") 
-			{
-				if (count($unchant)>=4) {
-					array_pop($unchant);
-				}
-				if (count($unchant)>=3) {
-					array_pop($unchant);
-				}
-				
-				//var_dump("testif1");
-
-				foreach ($unchant as $unecat) 
-				{
-
-					/*$rep=$bdd->prepare("SELECT * FROM CATEGORIE
-						WHERE lblcategorie=? AND categorieadmin=0;");
-					$rep->execute([$unecat]);
-					//var_dump($bdd->errorInfo());
-					$row = $rep->fetch(PDO::FETCH_ASSOC);*/
-					//if ($row==false) {
-						AjouterCategorie($unecat, $bdd, false);
-					//}
-				}
-				//$verifcar=true;
-			}
-		}
-
-	}
-	foreach (json_decode($jsonproduits, true, 100000) as  $unproduit) 
+	foreach (json_decode($jsonproduits, true, 100000) as $unproduit) 
 	{
 		foreach ($unproduit as $key => $unchant) 
 		{
@@ -273,13 +150,11 @@ function AddProduitsJsonPourApi($jsonproduits, $bdd)
 				//if ($row==false) {
 					if(!$boo)
 					{
-
-						AddUnProduitApi($unproduit["produit"], $unproduit["cat"], $unproduit["image"], $unproduit["ean"], $bdd);
+						AddUnProduitApi($unproduit["produit"], $unproduit["image"], $bdd);
 					}
 					else
 					{
-
-						$boo = AddUnProduitApi($unproduit["produit"], $unproduit["cat"], $unproduit["image"], $unproduit["ean"], $bdd);
+						$boo = AddUnProduitApi($unproduit["produit"], $unproduit["image"], $bdd);
 					}	
 				//}
 			}

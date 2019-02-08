@@ -14,6 +14,9 @@ if(isset($_SESSION['register'])){
 		case 'recup':
 			include "resources/API/recupProd.php";
 			break;
+		case 'insert':
+			include "resources/API/insertProd.php";
+			break;
 		default:
 			//session_destroy();
 			include 'resources/views/404.html';
@@ -24,6 +27,9 @@ else{
 	{
 		case 'recup':
 			include "resources/API/recupProd.php";
+			break;
+		case 'insert':
+			include "resources/API/insertProd.php";
 			break;
 		case 'panier':
 			include "resources/API/panier.php";

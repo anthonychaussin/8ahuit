@@ -2,8 +2,8 @@
 
 /*Gruaz Johan*/
 
-//include_once("db.php");
-include_once("dbco.php");
+include_once("db.php");
+//include_once("dbco.php");
 include_once("fonctionDB/fonctionsProduit.php");
 include_once("fonctionDB/fonctionsCategorie.php");
 include_once("fonctionDB/fonctionsClient.php");

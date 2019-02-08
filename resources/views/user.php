@@ -1,6 +1,6 @@
 <?php ?>
 <nav>
-	<ul id="menu">
+	<ul class="menu">
 		<a href="<?php echo $data['nav']['panier'];?>"><li class="limenu"><?php echo $lang['myPan'];?></li></a>
 		<a href="<?php echo $data['nav']['lastPanier'];?>"><li class="limenu"><?php echo $lang['lastPan'];?></li></a>
 		<a href="<?php echo $data['nav']['info'];?>"><li class="limenu"><?php echo $lang['myInfo'];?></li></a>

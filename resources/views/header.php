@@ -34,13 +34,6 @@
 		<ul class="menu">
 			<a href=".?P=home"><li class="limenu"><?php echo $lang['home'] ?></li></a>
 			<a href=".?P=shop"><li class="limenu"><?php echo $lang['bout'] ?></li></a>
-			<?php
-			if (isset($_SESSION['register'])) {
-				if ($_SESSION['register']['info']["nomclient"] == 'pcoli') {
-					echo '<a href=".?P=factures"><li>Factures</li></a>';
-				}
-			}
-			?>
 			<a href=".?P=about"><li class="limenu"><?php echo $lang['prop'] ?></li></a>
 			<a href=".?P=contact"><li class="limenu"><?php echo $lang['cont'] ?></li></a>
 		</ul>

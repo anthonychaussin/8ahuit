@@ -14,9 +14,8 @@ class RegisterController extends Controller
 	{
 		if ($this->verif())
 		{
-			echo "juste";
-			$result = ((new Client($_POST['mail'], htmlentities(sha1($_POST['pwd'], "randomKing".$_POST['mail'])), $_POST['nom'], $_POST['prenom'], $_POST['start'], $_POST['end'], $_POST['resa']))->insert());
-			var_dump($result);
+			echo "juste<br>";
+			$result = ((new Client($_POST['mail'], htmlentities(sha1($_POST['pwd']."randomKing".$_POST['mail'])), $_POST['nom'], $_POST['prenom'], $_POST['start'], $_POST['end'], $_POST['resa']))->insert());
 			if(!is_null($result[1]))
 				{
 					return $this->view ('formConnInsc', ["error" => "An error is appear", "POST" => $_POST], ["form"]);
@@ -34,10 +33,9 @@ class RegisterController extends Controller
 		if ($this->verif())
 		{
 			echo "juste";
-		
 			$userConnex = new Client($_POST['mail'], $_POST['pwd']);
-			$user = (new Client())->fonctionDb('FindClientByLog',[$_POST['mail']]);
-			if ($user->loginclient == $userConnex->loginclient && $user->mdpclient == htmlentities(sha1($userConnex->mdpclient, "randomKing".$userConnex->loginclient))) {
+			$user = (new Client())->fonctionDb('FindClientByMail',[$_POST['mail']]);
+			if ($user->mailclient == $userConnex->mailclient && $user->mdpclient == htmlentities(sha1($userConnex->mdpclient."randomKing".$userConnex->mailclient))) {
 				
 				$auto = "user";
 				if ($user->nomclient == "pcoli") {$auto = "master";}

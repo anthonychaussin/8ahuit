@@ -6,7 +6,7 @@ function reade(idInputFile = "fichier", idSortie = "sortie") {
 	document.getElementById("load").style.display = "block";
 	document.getElementById("wait").style.display = "block";
 	var temp = document.getElementById('fichier');
-	const regex = /h4>(.*)<\/h4|pan>(\d*)<\/spa|<li>([a-z ./A-Z]*)<\/li>|\s*url[/*/*/*/]|\/(.*)\);/gmiu;
+	const regex = /h4>(.*)<\/h4|\s*url[/*/*/*/]|\/(.*)\);/gmiu;
 	var entree, fichier, fr, resultat;
 	var compt = 0;
     if (typeof window.FileReader !== "function") {alert("L’API file n’est pas encore supportée par votre navigateur.");}
@@ -22,9 +22,8 @@ function reade(idInputFile = "fichier", idSortie = "sortie") {
         	var compt = 0;
         	var fin = false;
         	var nb = 1;
-        	var cat, tmp, nbcat, ean, produit, cadencier;
+        	var tmp, produit, cadencier;
             temp = 0;
-            nbcat = 0;
             cadencier = '[';
             while ((m = regex.exec(fr.result)) !== null) 
             {
@@ -42,51 +41,44 @@ function reade(idInputFile = "fichier", idSortie = "sortie") {
 		    			break;
 
 		    			case 2:
-		    			ean = `"ean":"${match}"`;
-		    			break;
-
-		    			case 4:
 		    			image = `"image":"${match}"`;
 		    			break;
 
 		    			default:
-		    			if (tmp != compt) {cat = '"cat":[';}
-		    			cat += `"${match}",`;
-		    			tmp = compt;
+		    			console.log(match);
 		    			break;
-	    			}
-	    		}
-    			});
-    			if (produit != null && ean != null && cat != null)
+	    			}}
+				});
+    			if (produit != null)
     			{
     				if(compt%100 == 0 && compt != 0)
 		    		{
-			    		getHTTPPost('http://10.103.1.202/~huitahuit/huita8/API/recupProd.php',encodeURI(cadencier.substring(0,cadencier.length-1)+']'), 
+			    		getHTTPPost('./?API=insert',encodeURI(cadencier.substring(0,cadencier.length-1)+']'), 
 		    			function(element)
-		    			{
+		    			{//console.log(element);
 		    				nb = nb + 100;
 		    				if (!fin){document.getElementById("bar2").style.width = ((nb / parseInt(document.getElementById("sortie").innerHTML)) * 100) + '%';}
 							if (element.toString().lenght > 1) 
 							{
 								console.error(element);
-								var outPut = document.getElementById("erreur");
-								if (outPut.innerHTML == null) {	outPut.innerHTML = "Une erreur c'est produite";}
+								//var outPut = document.getElementById("erreur");
+								//if (outPut.innerHTML == null) {	outPut.innerHTML = "Une erreur c'est produite";}
 							}
 						});
 			    		cadencier = '[';
 			    	}
-					cadencier += ("{"+produit+","+ean+","+image+","+cat.substring(0,cat.length-1)+"]},");
-					produit=null;ean=null;
+					cadencier += ("{"+produit+","+image+"},");
+					produit=null;
     			}
 			}
-		getHTTPPost('http://10.103.1.202/~huitahuit/huita8/API/recupProd.php',encodeURI(cadencier.substring(0,cadencier.length-1)+']'), 
+		getHTTPPost('./?API=insert',encodeURI(cadencier.substring(0,cadencier.length-1)+']'), 
 		function(element)
 		{
 			fin = true;
 			document.getElementById("load").style.display = "none";
 			document.getElementById("wait").style.display = "none";
 			document.getElementById("bar2").style.width = '100%';
-			if (element.toString().lenght > 1) { console.error(element);var outPut = document.getElementById("erreur");
+			if (element.toString().lenght > 1) { console.log(element);var outPut = document.getElementById("erreur");
 				if (outPut.innerHTML == null) {	outPut.innerHTML = "Une erreur c'est produite";}}			
 		});
 	}

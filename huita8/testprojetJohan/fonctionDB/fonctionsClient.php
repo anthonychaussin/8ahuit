@@ -2,29 +2,14 @@
 
 /*Gruaz Johan*/
 
-
-function AddClient($nomclient, $prenomclient, $loginclient, $mdpclient, $mailclient, $numeroreservation, $comptedefinitif, $bdd, $telephone = null){
-	$rep=$bdd->prepare("INSERT INTO CLIENT (nomclient, prenomclient, loginclient, mdpclient, mailclient, numeroreservation, comptedefinitif, telephone) VALUES 
-		(?, ?, ?, MD5(?), ?, ?, ?, ?);");
-	$rep->execute([$nomclient, $prenomclient, $loginclient, $mdpclient, $mailclient, $numeroreservation, $comptedefinitif, $telephone]);
-}
-
-
-function FindClientById($idclient, $bdd){
-	$unproduit;
-	$rep=$bdd->prepare("SELECT c.idclient, c.nomclient, c.prenomclient, c.loginclient, c.mdpclient, c.mailclient, c.numeroreservation, c.comptedefinitif, 
-FROM CLIENT c
-WHERE c.idclient=?;");
-	$rep->execute([$idclient]);
-	return $rep;
-}
-
-function FindClientByLogAndMdp($login, $mpd, $bdd){
-	$unproduit;
-	$rep=$bdd->prepare("SELECT c.idclient, c.nomclient, c.prenomclient, c.loginclient, c.mdpclient, c.mailclient, c.numeroreservation, c.comptedefinitif, 
-FROM CLIENT c
-WHERE c.loginclient=?
-AND c.mdpclient=?;");
-	$rep->execute([$log, $mdp]);
-	return $rep;
+function FindClientByMail($mail){
+	$rep = ((new Db())->dbString)->prepare("SELECT * FROM CLIENT WHERE mailclient=?;");
+	$rep->execute([$mail]);
+	if (!is_null($rep->errorInfo()[1])) {var_dump($rep->errorInfo());}
+	$data = $rep->fetch(PDO::FETCH_ASSOC);
+var_dump(((new Db())->dbString)->errorInfo());
+	var_dump($data);
+	$obj = new Client();
+	foreach ($data as $key => $value) {	$obj->$key = $value;}
+	return $obj;
 }
