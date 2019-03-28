@@ -44,12 +44,6 @@ elseif(isset($_GET['U'])){switch (strtolower($_GET['U'])) {
 			$dir = "testprojetJohan";	
 			break;
 
-		
-		case 'anton':
-			$header = True;
-			$dir = "testAnton/Antonin";	
-			break;
-
 
 
 /*       FIN DE LA SECTION*/
